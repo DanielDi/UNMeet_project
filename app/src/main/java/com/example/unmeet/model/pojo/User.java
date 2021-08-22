@@ -1,6 +1,8 @@
 package com.example.unmeet.model.pojo;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
@@ -8,9 +10,11 @@ import java.util.Date;
 public class User {
 
   private String nombre;
+  @PrimaryKey
+  @NonNull
   private String correo;
   private String fotoPerfil;
-  private Date fechaNacimiento;
+  private String fechaNacimiento;
   private String contrasena;
   private String ciudad;
 
@@ -38,11 +42,11 @@ public class User {
     this.fotoPerfil = fotoPerfil;
   }
 
-  public Date getFechaNacimiento() {
+  public String getFechaNacimiento() {
     return fechaNacimiento;
   }
 
-  public void setFechaNacimiento(Date fechaNacimiento) {
+  public void setFechaNacimiento(String fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
 
