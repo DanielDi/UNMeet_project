@@ -25,14 +25,13 @@ public class IniciarSesionController {
         Boolean internet = verificarConexionInternet(context);
 
         if(!internet){
-            context.mostrarPopUp("No hay conexión");
+            context.mostrarPopUp("No hay conexión a internet. Intentalo mas tarde");
         } else {
             Boolean checkCorreo = verificarFormatoCorreo(correo);
             if(!checkCorreo){
                 context.mostrarPopUp("Correo malo");
             } else {
                 verificarInicioSesion(context, correo, contraseña);
-
             }
         }
 
