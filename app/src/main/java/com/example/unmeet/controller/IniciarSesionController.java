@@ -15,6 +15,7 @@ import com.example.unmeet.model.pojo.User;
 
 import java.util.List;
 import java.util.regex.Pattern;
+import com.example.unmeet.controller.HomeController;
 
 
 public class IniciarSesionController {
@@ -48,7 +49,7 @@ public class IniciarSesionController {
         } else {
             System.out.println("USER EXISTENTE: ");
             System.out.println(user.getCorreo());
-            //TODO solicitarVistaHomeActivity con pop up sesion iniciada
+            HomeController.crearVistaHome(iniciarSesionActivity, correo);
         }
     }
 
