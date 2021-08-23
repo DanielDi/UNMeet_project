@@ -22,8 +22,8 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
-                android:layout_width="410dp"
-                android:layout_height="456dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/frameLayout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -31,38 +31,69 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.727">
 
-                <TextView
-                    android:id="@+id/home_activity_title_grupos_seguir"
-                    android:layout_width="174dp"
-                    android:layout_height="30dp"
-                    android:text="@string/home_activity_grupos_seguidos" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:id="@+id/linear_layout_grupos_usuario_home"
-                    android:layout_width="409dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    <TextView
+                        android:id="@+id/home_activity_title_grupos_seguir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/home_activity_grupos_seguidos"
+                        app:layout_constraintBottom_toTopOf="@+id/linear_layout_grupos_usuario_home"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_grupos_usuario_home"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/frameLayout"
-                android:layout_width="411dp"
-                android:layout_height="275dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
-                    android:id="@+id/home_activity_title_todos_grupos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_activity_todos_los_grupos" />
-
-                <LinearLayout
-                    android:id="@+id/linear_layout_grupos_home"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/home_activity_title_todos_grupos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/home_activity_todos_los_grupos"
+                        app:layout_constraintBottom_toTopOf="@+id/linear_layout_grupos_home"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_grupos_home"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
