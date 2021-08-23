@@ -25,6 +25,7 @@ public abstract class LocalStorage extends RoomDatabase {
         .allowMainThreadQueries() // Crear un hilo ejecución alterna (por facilidad lo hacemos acá, pero es mejor con otra librería).
         .build();
     }
+
     return localStorage;
   }
 

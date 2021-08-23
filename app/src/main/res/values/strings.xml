@@ -12,4 +12,6 @@
     <string name="backgroun_log_in">backgroun log in</string>
     <string name="this_is_the_log_in_button">This is the log in button</string>
     <string name="this_is_the_un_meet_logo">This is the UN meet logo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
