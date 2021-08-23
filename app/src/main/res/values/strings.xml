@@ -9,4 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="backgroun_log_in">backgroun log in</string>
+    <string name="this_is_the_log_in_button">This is the log in button</string>
+    <string name="this_is_the_un_meet_logo">This is the UN meet logo</string>
 </resources>

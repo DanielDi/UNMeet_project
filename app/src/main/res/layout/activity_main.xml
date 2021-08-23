@@ -6,7 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
+    <ImageView
+        android:id="@+id/un_background_image_log_in"
+        android:layout_width="564dp"
+        android:layout_height="879dp"
+        android:contentDescription="@string/backgroun_log_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/un_background" />
+
+    <View
+        android:id="@+id/darken_background_iniciar_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#80000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/un_meet_logo_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/this_is_the_un_meet_logo"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_unmeet_logo" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="385dp"
         android:layout_height="209dp"
         android:layout_marginStart="16dp"
@@ -14,13 +48,15 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="48dp"
+        app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/register_and_login_buttons_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="207dp">
 
             <Button
                 android:id="@+id/home_entry_login_button"
@@ -32,14 +68,20 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="32dp"
+                android:background="@drawable/button"
+                android:contentDescription="@string/this_is_the_log_in_button"
+                android:radius="50dp"
                 android:text="@string/home_entry_button_iniciar_sesion"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="16sp"
+                app:backgroundTint="@color/red_wine"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_entry_register_button"
-                app:layout_constraintVertical_bias="0.529" />
+                app:layout_constraintVertical_bias="0.529"
+                tools:ignore="RedundantDescriptionCheck" />
 
             <Button
                 android:id="@+id/home_entry_register_button"
@@ -50,12 +92,16 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif"
                 android:text="@string/home_entry_button_registrar_usuario"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="16sp"
+                app:backgroundTint="@color/red_wine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
