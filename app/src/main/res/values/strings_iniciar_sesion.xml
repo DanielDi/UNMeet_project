@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_entry_button_iniciar_sesion">Iniciar Sesión</string>
+    <string name="home_entry_button_registrar_usuario">Registrar Usuario</string>
+    <string name="iniciar_sesion_error_conexion_internet_popup">No hay conexión a internet. Inténtalo más tarde.</string>
+</resources>
