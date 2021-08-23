@@ -18,6 +18,15 @@ public class User {
   private String contrasena;
   private String ciudad;
 
+  public User(String nombre, @NonNull String correo, String fotoPerfil, String fechaNacimiento, String contrasena, String ciudad) {
+    this.nombre = nombre;
+    this.correo = correo;
+    this.fotoPerfil = fotoPerfil;
+    this.fechaNacimiento = fechaNacimiento;
+    this.contrasena = contrasena;
+    this.ciudad = ciudad;
+  }
+
   public String getNombre() {
     return nombre;
   }

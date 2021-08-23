@@ -2,6 +2,9 @@ package com.example.unmeet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -29,19 +32,30 @@ public class IniciarSesionActivity extends AppCompatActivity {
     correo = findViewById(R.id.iniciar_sesion_input_correo);
     contraseña = findViewById(R.id.iniciar_sesion_input_contraseña);
     iniciarSesionController = new IniciarSesionController();
-
+    IniciarSesionActivity context = this;
     iniciarSesionButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
 
-        iniciarSesionController.login(correo.getText().toString(), contraseña.getText().toString());
-
+        iniciarSesionController.login(context, correo.getText().toString(), contraseña.getText().toString());
       }
     });
 
   }
 
+  public void mostrarPopUp(String mensaje){
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setMessage(mensaje)
+            .setPositiveButton("X", new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+              }
+            });
 
+    AlertDialog dialog = builder.create();
+    dialog.show();
+  }
 
 
 }
