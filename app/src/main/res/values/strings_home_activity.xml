@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_activity_grupos_seguidos">Grupos Seguidos</string>
+    <string name="home_activity_todos_los_grupos">Todos Los Grupos</string>
+    <string name="home_activity_empty_buttom"> </string>
+</resources>

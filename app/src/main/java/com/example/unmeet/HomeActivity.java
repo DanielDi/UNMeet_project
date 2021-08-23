@@ -16,5 +16,10 @@ public class HomeActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.linear_layout_grupos_usuario_home,
                     Fragment_Grupo.newInstance(i + "")).commit();
         }
+
+        for(int i = 5; i < 0; i--){
+            getSupportFragmentManager().beginTransaction().add(R.id.linear_layout_grupos_home,
+                    Fragment_Grupo.newInstance(i + "")).commit();
+        }
     }
 }
