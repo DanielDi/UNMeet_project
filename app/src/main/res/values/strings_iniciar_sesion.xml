@@ -5,4 +5,8 @@
     <string name="no_internet_connection_alert_message">No hay conexión a internet.</string>
     <string name="try_again_alert_message">Intentalo más tarde.</string>
     <string name="iniciar_sesion_error_conexion_internet_popup">No hay conexión a internet. Inténtalo más tarde.</string>
+    <string name="email_iniciar_sesion">Correo Electrónico</string>
+    <string name="password_iniciar_sesion">Contraseña</string>
+    <string name="sample_hint_email_iniciar_sesion">ejemplo@unal.edu.co</string>
+    <string name="sample_hint_pass_iniciar_sesion">********</string>
 </resources>

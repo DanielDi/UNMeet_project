@@ -29,8 +29,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_iniciar_sesion);
     iniciarSesionButton = findViewById(R.id.iniciar_sesion_button_login);
-    correo = findViewById(R.id.iniciar_sesion_input_correo);
-    contraseña = findViewById(R.id.iniciar_sesion_input_contraseña);
+    correo = findViewById(R.id.iniciar_sesion_input_correo_edit_text);
+    contraseña = findViewById(R.id.iniciar_sesion_input_contraseña_edit_text);
     iniciarSesionController = new IniciarSesionController();
     IniciarSesionActivity context = this;
     iniciarSesionButton.setOnClickListener(new View.OnClickListener() {
