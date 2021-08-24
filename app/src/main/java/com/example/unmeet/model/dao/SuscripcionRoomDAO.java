@@ -13,11 +13,14 @@ import java.util.List;
 public interface SuscripcionRoomDAO {
     @Query("SELECT * FROM suscripciones " +
             "WHERE correoUsuario = :correoUsuarioQ ORDER BY nombreGrupo")
-    List<Suscripcion> obtenerGruposUsuario(String correoUsuarioQ);
+    List<Suscripcion> obtenerGruposUsuarioSigue(String correoUsuarioQ);
 
-//    @Query("SELECT * FROM suscripciones " +
-//            "WHERE correoUsuario != :correoUsuarioQ AND nombreGrupo ORDER BY nombreGrupo")
-//    Suscripcion obtenerGrupos(String correoUsuarioQ, String nombreGrupoQ);
+    @Query("SELECT nombre FROM grupos g " +
+            "LEFT JOIN (SELECT * FROM suscripciones " +
+            "WHERE correoUsuario = :correoUsuarioQ) AS s " +
+            "ON g.nombre = s.nombregrupo " +
+            "WHERE s.nombregrupo IS NULL")
+    List<Suscripcion> obtenerGruposUsuarioNoSigue(String correoUsuarioQ);
 
     @Insert
     void insertAll(Suscripcion ...suscripciones);

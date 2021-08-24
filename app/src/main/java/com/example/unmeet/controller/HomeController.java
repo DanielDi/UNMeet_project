@@ -1,6 +1,9 @@
 package com.example.unmeet.controller;
 
 import android.content.Intent;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.unmeet.HomeActivity;
 import com.example.unmeet.IniciarSesionActivity;
@@ -11,6 +14,7 @@ import com.example.unmeet.model.pojo.Suscripcion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HomeController {
     private GrupoRoomDAO grupoRoomDAO;
@@ -22,24 +26,26 @@ public class HomeController {
         iniciarSesionActivity.finish();
     }
 
-    public static List<Grupo> obtenerGrupos(HomeActivity homeActivity){
-        return LocalStorage.getLocalStorage(homeActivity.getApplicationContext()).grupoRoomDAO().obtenerGrupos();
-    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static List<List<String>> solicitarGrupos(HomeActivity homeActivity, String correo) {
+        List<String> nombreGruposUsuarioSigue = SuscripcionController
+          .obtenerGruposDelUsuario(homeActivity, correo)
+          .stream()
+          .map(sus -> sus.getNombreGrupo())
+          .collect(Collectors.toList());
 
-    //List<List<Grupo>> listaL= HomeController.solicitarGrupos(this,getIntent().getExtras().getString("correoUsuario"))
-    public static Tuple<List<Grupo>,List<Suscripcion> > solicitarGrupos(HomeActivity homeActivity,String correo) {
-        List<Grupo> grupos = HomeController.obtenerGrupos(homeActivity);
+        List<String> nombresGruposUsuarioNoSigue = SuscripcionController
+          .obtenerGruposNoDelUsuario(homeActivity, correo)
+          .stream()
+          .map(grupo -> grupo.getNombreGrupo())
+          .collect(Collectors.toList());
 
-        List<Suscripcion> gruposDelUsuario = SuscripcionController
-                .obtenerGruposDelUsuario(homeActivity,correo);
+        List<List<String>> gruposUsuarios = new ArrayList<List<String>>();
 
-//        List<Grupo> gruposNoDelUsuario = new ArrayList<Grupo>();
-//
-//        for(Suscripcion sus: gruposDelUsuario){
-//            List<Grupo> aux = grupos.stream().filter(grupo -> grupo.getNombre() != sus.getNombreGrupo());
-//        }
+        gruposUsuarios.add(0, nombreGruposUsuarioSigue);
+        gruposUsuarios.add(1, nombresGruposUsuarioNoSigue);
 
 
-        return null;
+        return gruposUsuarios;
     }
 }

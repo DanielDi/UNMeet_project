@@ -10,6 +10,15 @@ import java.util.List;
 public class SuscripcionController {
 
     public static List<Suscripcion> obtenerGruposDelUsuario(HomeActivity homeActivity, String correo){
-        return LocalStorage.getLocalStorage(homeActivity.getApplicationContext()).suscripcionRoomDAO().obtenerGruposUsuario(correo);
+        return LocalStorage.getLocalStorage(homeActivity.getApplicationContext())
+                .suscripcionRoomDAO()
+                .obtenerGruposUsuarioSigue(correo);
     }
+
+    public static List<Suscripcion> obtenerGruposNoDelUsuario(HomeActivity homeActivity, String correo){
+        return LocalStorage.getLocalStorage(homeActivity.getApplicationContext())
+          .suscripcionRoomDAO()
+          .obtenerGruposUsuarioNoSigue(correo);
+    }
+
 }
