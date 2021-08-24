@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     registerButton.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void onClick(View view) { crearUsuarios(); }
+      public void onClick(View view) {
+          crearUsuarios();
+          mostrarMensajeAlerta("Usuarios Creados");
+      }
     });
     dialog = new Dialog(this);
 
