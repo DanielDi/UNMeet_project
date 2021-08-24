@@ -2,5 +2,7 @@
 <resources>
     <string name="home_entry_button_iniciar_sesion">Iniciar Sesión</string>
     <string name="home_entry_button_registrar_usuario">Registrar Usuario</string>
+    <string name="no_internet_connection_alert_message">No hay conexión a internet.</string>
+    <string name="try_again_alert_message">Intentalo más tarde.</string>
     <string name="iniciar_sesion_error_conexion_internet_popup">No hay conexión a internet. Inténtalo más tarde.</string>
 </resources>

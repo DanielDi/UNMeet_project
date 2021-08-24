@@ -10,5 +10,4 @@ public class Grupo {
     private String descripcion;
     private String ubicacion;
     private String imagen;
-    private 
 }
