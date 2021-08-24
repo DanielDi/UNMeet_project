@@ -3,6 +3,7 @@ package com.example.unmeet.controller;
 
 import com.example.unmeet.HomeActivity;
 import com.example.unmeet.model.LocalStorage;
+import com.example.unmeet.model.pojo.Grupo;
 import com.example.unmeet.model.pojo.Suscripcion;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class SuscripcionController {
                 .obtenerGruposUsuarioSigue(correo);
     }
 
-    public static List<Suscripcion> obtenerGruposNoDelUsuario(HomeActivity homeActivity, String correo){
+    public static List<Grupo> obtenerGruposNoDelUsuario(HomeActivity homeActivity, String correo){
         return LocalStorage.getLocalStorage(homeActivity.getApplicationContext())
           .suscripcionRoomDAO()
           .obtenerGruposUsuarioNoSigue(correo);

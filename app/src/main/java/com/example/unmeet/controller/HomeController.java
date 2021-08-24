@@ -37,7 +37,7 @@ public class HomeController {
         List<String> nombresGruposUsuarioNoSigue = SuscripcionController
           .obtenerGruposNoDelUsuario(homeActivity, correo)
           .stream()
-          .map(grupo -> grupo.getNombreGrupo())
+          .map(grupo -> grupo.getNombre())
           .collect(Collectors.toList());
 
         List<List<String>> gruposUsuarios = new ArrayList<List<String>>();

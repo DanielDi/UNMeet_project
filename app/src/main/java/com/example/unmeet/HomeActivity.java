@@ -28,9 +28,6 @@ public class HomeActivity extends AppCompatActivity {
                             getIntent().getExtras().getString("correoUsuario")
                            );
 
-//        List<Suscripcion> gruposDelUsuario = SuscripcionController
-//                .obtenerGruposDelUsuario(this,getIntent().getExtras().getString("correoUsuario"));
-
         for(String nombreGrupo: grupos.get(0)) {
             getSupportFragmentManager()
               .beginTransaction()

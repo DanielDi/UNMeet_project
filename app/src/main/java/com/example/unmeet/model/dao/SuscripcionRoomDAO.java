@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.unmeet.model.pojo.Grupo;
 import com.example.unmeet.model.pojo.Suscripcion;
 
 import java.util.List;
@@ -15,12 +16,12 @@ public interface SuscripcionRoomDAO {
             "WHERE correoUsuario = :correoUsuarioQ ORDER BY nombreGrupo")
     List<Suscripcion> obtenerGruposUsuarioSigue(String correoUsuarioQ);
 
-    @Query("SELECT nombre FROM grupos g " +
+    @Query("SELECT * FROM grupos g " +
             "LEFT JOIN (SELECT * FROM suscripciones " +
             "WHERE correoUsuario = :correoUsuarioQ) AS s " +
             "ON g.nombre = s.nombregrupo " +
             "WHERE s.nombregrupo IS NULL")
-    List<Suscripcion> obtenerGruposUsuarioNoSigue(String correoUsuarioQ);
+    List<Grupo> obtenerGruposUsuarioNoSigue(String correoUsuarioQ);
 
     @Insert
     void insertAll(Suscripcion ...suscripciones);
