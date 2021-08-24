@@ -2,10 +2,19 @@ package com.example.unmeet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.unmeet.controller.HomeEntryController;
 import com.example.unmeet.model.LocalStorage;
@@ -19,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
   private UserRoomDAO userRoomDAO;
   HomeEntryController homeEntryController;
 
+  Dialog dialog;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -28,8 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
     registerButton.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void onClick(View view) { crearUsuarios(); }
+      public void onClick(View view) {
+          crearUsuarios();
+          mostrarMensajeAlerta("Usuarios Creados");
+      }
     });
+    dialog = new Dialog(this);
 
     loginButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -54,5 +69,31 @@ public class MainActivity extends AppCompatActivity {
     User user4 = new User("Albajad mamhad", "afgano@gmail.com", "Taliban.jpg", "01/02/1977","123", "Bello");
     this.userRoomDAO.insertAll(user1, user2, user3, user4);
     System.out.println("USUARIOS CREADOS ");
+  }
+
+  public void mostrarMensajeAlerta(String message1, String... message2) {
+      // Changing basic dialog
+      dialog.setContentView(R.layout.custom_dialog_alert);
+      dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+      // Getting text views from dialog
+      TextView firstAlertMessage = (TextView) dialog.findViewById(R.id.first_alert_message);
+      TextView secondAlertMessage = (TextView) dialog.findViewById(R.id.second_alert_message);
+
+      // Setting custom messages
+      firstAlertMessage.setText(message1);
+      secondAlertMessage.setText(message2[0] != "" ? message2[0] : "");
+
+      ImageView imageViewClose = dialog.findViewById(R.id.close_button_alert_message);
+
+      imageViewClose.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              dialog.dismiss();
+//              Toast.makeText(MainActivity.this, "Dialog close", Toast.LENGTH_SHORT).show();
+          }
+      });
+
+      dialog.show();
   }
 }
