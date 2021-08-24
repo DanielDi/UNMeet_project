@@ -10,13 +10,11 @@ public class Grupo {
     @NonNull
     private String nombre;
     private String descripcion;
-    private String ubicacion;
     private String imagen;
 
-    public Grupo(@NonNull String nombre, String descripcion, String ubicacion, String imagen) {
+    public Grupo(@NonNull String nombre, String descripcion, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.ubicacion = ubicacion;
         this.imagen = imagen;
     }
 
@@ -35,14 +33,6 @@ public class Grupo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public String getImagen() {

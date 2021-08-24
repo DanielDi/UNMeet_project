@@ -6,7 +6,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "suscripciones", primaryKeys = {"correoUsuario", "nombreGrupo"})
 public class Suscripcion {
+    @NonNull
     private String correoUsuario;
+    @NonNull
     private String nombreGrupo;
 
     public Suscripcion(String correoUsuario, String nombreGrupo) {
