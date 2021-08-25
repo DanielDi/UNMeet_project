@@ -10,7 +10,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.unmeet.HomeActivity;
 import com.example.unmeet.R;
+import com.example.unmeet.controller.GrupoController;
+import com.example.unmeet.controller.HomeController;
 
 public class Fragment_Grupo extends Fragment {
 
@@ -18,6 +21,8 @@ public class Fragment_Grupo extends Fragment {
     private View rootView;
     private TextView nombreGrupoTextView;
     private Button myButton;
+    private HomeController homeController;
+    private HomeActivity homeActivity;
 
     public Fragment_Grupo() {
         // Required empty public constructor
@@ -32,8 +37,7 @@ public class Fragment_Grupo extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
+        this.homeActivity = new HomeActivity();
     }
 
     @Override
@@ -44,11 +48,14 @@ public class Fragment_Grupo extends Fragment {
         nombreGrupoTextView = rootView.findViewById(R.id.nombre_grupo_text_fragment);
         nombreGrupoTextView.setText(this.nombreGrupo);
         myButton = (Button) rootView.findViewById(R.id.button_fragment_group);
+
+
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                System.out.println("grupito");
+                System.out.println(nombreGrupoTextView.getText());
+                homeActivity.getNombreGrupo(nombreGrupoTextView.getText().toString());
             }
         });
         return rootView;
@@ -61,4 +68,5 @@ public class Fragment_Grupo extends Fragment {
     public void setNombreGrupo(String nombreGrupo) {
         this.nombreGrupo = nombreGrupo;
     }
+
 }

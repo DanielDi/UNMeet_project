@@ -16,17 +16,17 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private String correo;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        this.correo = getIntent().getExtras().getString("correoUsuario").toString();
 
         List<List<String>> grupos = HomeController
-          .solicitarGrupos(
-                 this,
-                            getIntent().getExtras().getString("correoUsuario")
-                           );
+          .solicitarGrupos(this, this.correo);
 
         for(String nombreGrupo: grupos.get(0)) {
             getSupportFragmentManager()
@@ -47,4 +47,9 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+
+    public void getNombreGrupo(String grupo) {
+        HomeController.solicitarCrearVistaGrupo(this, grupo, this.correo);
+    }
+
 }
