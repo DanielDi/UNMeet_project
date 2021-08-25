@@ -28,16 +28,16 @@ public class Fragment_Grupo extends Fragment {
         // Required empty public constructor
     }
 
-    public static Fragment_Grupo newInstance(String nombre) {
+    public static Fragment_Grupo newInstance(String nombre, HomeActivity homeActivity) {
         Fragment_Grupo fragment = new Fragment_Grupo();
         fragment.setNombreGrupo(nombre);
+        fragment.setHomeActivity(homeActivity);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.homeActivity = new HomeActivity();
     }
 
     @Override
@@ -59,6 +59,14 @@ public class Fragment_Grupo extends Fragment {
             }
         });
         return rootView;
+    }
+
+    public HomeActivity getHomeActivity() {
+        return homeActivity;
+    }
+
+    public void setHomeActivity(HomeActivity homeActivity) {
+        this.homeActivity = homeActivity;
     }
 
     public String getNombreGrupo() {

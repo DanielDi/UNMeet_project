@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
               .beginTransaction()
               .add(
                     R.id.linear_layout_grupos_usuario_home,
-                    Fragment_Grupo.newInstance(nombreGrupo))
+                    Fragment_Grupo.newInstance(nombreGrupo, this))
               .commit();
         }
 
@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
               .beginTransaction()
               .add(
                     R.id.linear_layout_grupos_home,
-                    Fragment_Grupo.newInstance(nombreGrupo))
+                    Fragment_Grupo.newInstance(nombreGrupo, this))
               .commit();
         }
 
