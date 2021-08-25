@@ -17,9 +17,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomeController {
-    private GrupoRoomDAO grupoRoomDAO;
 
-    public static void crearVistaHome(IniciarSesionActivity iniciarSesionActivity, String correo){
+    public static void crearVistaHome(IniciarSesionActivity iniciarSesionActivity, String correo) {
         Intent newActivity = new Intent(iniciarSesionActivity, HomeActivity.class);
         newActivity.putExtra("correoUsuario", correo);
         iniciarSesionActivity.startActivity(newActivity);
@@ -47,5 +46,15 @@ public class HomeController {
 
 
         return gruposUsuarios;
+    }
+
+    public static void solicitarCrearVistaGrupo(HomeActivity homeActivity, String nombre, String correo) {
+        GrupoController grupoController = new GrupoController();
+        System.out.println("Llegué a HomeController");
+        grupoController.CrearVistaGrupo(homeActivity, nombre, correo);
+//        if (IniciarSesionController.verificarConexionInternet(homeActivity)) {
+//
+//        }
+
     }
 }

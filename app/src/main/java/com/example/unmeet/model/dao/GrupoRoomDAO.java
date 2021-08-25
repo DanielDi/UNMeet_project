@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface GrupoRoomDAO {
     @Query("SELECT * FROM grupos WHERE nombre = :nombreQuery")
-    Grupo obtenerGrupoUser(String nombreQuery);
+    Grupo obtenerGrupo(String nombreQuery);
 
     @Query("SELECT * FROM grupos")
     List<Grupo> obtenerGrupos();

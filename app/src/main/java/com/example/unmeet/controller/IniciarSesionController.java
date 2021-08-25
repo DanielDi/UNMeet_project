@@ -58,7 +58,7 @@ public class IniciarSesionController {
         return pattern.matcher(correo).matches();
     }
 
-    public Boolean verificarConexionInternet(Context context){
+    public static Boolean verificarConexionInternet(Context context){
         ConnectivityManager cm =
                 (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

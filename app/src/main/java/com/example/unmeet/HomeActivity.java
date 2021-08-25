@@ -16,24 +16,24 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private String correo;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        this.correo = getIntent().getExtras().getString("correoUsuario").toString();
 
         List<List<String>> grupos = HomeController
-          .solicitarGrupos(
-                 this,
-                            getIntent().getExtras().getString("correoUsuario")
-                           );
+          .solicitarGrupos(this, this.correo);
 
         for(String nombreGrupo: grupos.get(0)) {
             getSupportFragmentManager()
               .beginTransaction()
               .add(
                     R.id.linear_layout_grupos_usuario_home,
-                    Fragment_Grupo.newInstance(nombreGrupo))
+                    Fragment_Grupo.newInstance(nombreGrupo, this))
               .commit();
         }
 
@@ -42,9 +42,14 @@ public class HomeActivity extends AppCompatActivity {
               .beginTransaction()
               .add(
                     R.id.linear_layout_grupos_home,
-                    Fragment_Grupo.newInstance(nombreGrupo))
+                    Fragment_Grupo.newInstance(nombreGrupo, this))
               .commit();
         }
 
     }
+
+    public void getNombreGrupo(String grupo) {
+        HomeController.solicitarCrearVistaGrupo(this, grupo, this.correo);
+    }
+
 }
