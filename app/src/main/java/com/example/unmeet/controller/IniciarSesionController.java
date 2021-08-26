@@ -16,6 +16,8 @@ import com.example.unmeet.model.pojo.User;
 import java.util.List;
 import java.util.regex.Pattern;
 import com.example.unmeet.controller.HomeController;
+import com.example.unmeet.shared.ConexionInternet;
+import com.example.unmeet.shared.PopUp;
 
 
 public class IniciarSesionController {
@@ -23,14 +25,14 @@ public class IniciarSesionController {
 
     public void login(IniciarSesionActivity context, String correo, String contraseña){
         System.out.println(correo + " " + contraseña);
-        Boolean internet = verificarConexionInternet(context);
+        Boolean internet = ConexionInternet.verificarConexionInternet(context);
 
         if(!internet){
-            context.mostrarPopUp("No hay conexión a internet. Intentalo mas tarde");
+            PopUp.mostrarPopUp(context,"No hay conexión a internet. Intentalo mas tarde", "");
         } else {
             Boolean checkCorreo = verificarFormatoCorreo(correo);
             if(!checkCorreo){
-                context.mostrarPopUp("Correo malo");
+                PopUp.mostrarPopUp(context,"Verifica el correo", "");
             } else {
                 verificarInicioSesion(context, correo, contraseña);
             }
@@ -47,8 +49,6 @@ public class IniciarSesionController {
         if(user == null || user.getContrasena().compareTo(contraseña) < 0){
             iniciarSesionActivity.mostrarPopUp("Correo o contraseña inválidos");
         } else {
-            System.out.println("USER EXISTENTE: ");
-            System.out.println(user.getCorreo());
             HomeController.crearVistaHome(iniciarSesionActivity, correo);
         }
     }
@@ -56,16 +56,6 @@ public class IniciarSesionController {
     public boolean verificarFormatoCorreo(String correo){
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(correo).matches();
-    }
-
-    public static Boolean verificarConexionInternet(Context context){
-        ConnectivityManager cm =
-                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-        return isConnected;
     }
 
 }

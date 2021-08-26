@@ -63,17 +63,4 @@ public class GrupoActivity extends AppCompatActivity {
     return GrupoController.verificarUsuarioSigueGrupo(grupoActivity,correo,nombreGrupo);
   }
 
-  public void mostrarPopUp(String mensaje){
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setMessage(mensaje)
-            .setPositiveButton("X", new DialogInterface.OnClickListener() {
-              @Override
-              public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-              }
-            });
-
-    AlertDialog dialog = builder.create();
-    dialog.show();
-  }
 }

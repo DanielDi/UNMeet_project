@@ -2,19 +2,11 @@ package com.example.unmeet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.unmeet.controller.HomeEntryController;
 import com.example.unmeet.model.LocalStorage;
@@ -24,6 +16,7 @@ import com.example.unmeet.model.dao.UserRoomDAO;
 import com.example.unmeet.model.pojo.Grupo;
 import com.example.unmeet.model.pojo.Suscripcion;
 import com.example.unmeet.model.pojo.User;
+import com.example.unmeet.shared.PopUp;
 
 public class HomeEntryActivity extends AppCompatActivity {
 
@@ -46,13 +39,17 @@ public class HomeEntryActivity extends AppCompatActivity {
     registerButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-          crearUsuarios();
-          crearGrupos();
-          crearSuscripciones();
-          mostrarMensajeAlerta("Usuarios, grupos y suscripciones creadas!", "");
+          try{
+              crearUsuarios();
+              crearGrupos();
+              crearSuscripciones();
+              crearPopUp("Usuarios, grupos y suscripciones creadas!", "");
+          } catch (Error e){
+              crearPopUp("Usuarios, grupos y suscripciones ya están creados", "");
+          }
       }
     });
-    dialog = new Dialog(this);
+//    dialog = new Dialog(this);
 
     loginButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -63,9 +60,7 @@ public class HomeEntryActivity extends AppCompatActivity {
   }
 
   public void solicitarInicioSesion() {
-    Intent newActivity = new Intent(this, IniciarSesionActivity.class);
-    startActivity(newActivity);
-    finish();
+      HomeEntryController.solicitarInicioSesion(this);
   }
 
   public void crearUsuarios() {
@@ -115,29 +110,8 @@ public class HomeEntryActivity extends AppCompatActivity {
     System.out.println("SUSCRIPCIONES CREADAS");
   }
 
-  public void mostrarMensajeAlerta(String message1, String... message2) {
-      // Changing basic dialog
-      dialog.setContentView(R.layout.custom_dialog_alert);
-      dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-      // Getting text views from dialog
-      TextView firstAlertMessage = (TextView) dialog.findViewById(R.id.first_alert_message);
-      TextView secondAlertMessage = (TextView) dialog.findViewById(R.id.second_alert_message);
-
-      // Setting custom messages
-      firstAlertMessage.setText(message1);
-      secondAlertMessage.setText(message2[0] != "" ? message2[0] : "");
-
-      ImageView imageViewClose = dialog.findViewById(R.id.close_button_alert_message);
-
-      imageViewClose.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              dialog.dismiss();
-//              Toast.makeText(HomeEntryActivity.this, "Dialog close", Toast.LENGTH_SHORT).show();
-          }
-      });
-
-      dialog.show();
+  public void crearPopUp(String mensaje, String mensaje2){
+      PopUp.mostrarPopUp(this, mensaje, mensaje2);
   }
+
 }

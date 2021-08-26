@@ -7,6 +7,8 @@ import com.example.unmeet.HomeActivity;
 import com.example.unmeet.model.LocalStorage;
 import com.example.unmeet.model.dao.GrupoRoomDAO;
 import com.example.unmeet.model.pojo.Grupo;
+import com.example.unmeet.shared.ConexionInternet;
+import com.example.unmeet.shared.PopUp;
 
 public class GrupoController {
 
@@ -16,19 +18,15 @@ public class GrupoController {
   public void CrearVistaGrupo(HomeActivity homeActivity, String nombre, String correo) {
 
     Intent newActivity = new Intent(homeActivity, GrupoActivity.class);
-    Grupo grupo = this.consultarGrupoPorNombre(homeActivity, nombre);
+    this.grupoRoomDAO = LocalStorage.getLocalStorage(homeActivity.getApplicationContext())
+            .grupoRoomDAO();
+    Grupo grupo = this.grupoRoomDAO.obtenerGrupo(nombre);
+
     newActivity.putExtra("correoUsuario", correo);
     newActivity.putExtra("nombre", grupo.getNombre());
     newActivity.putExtra("descripcion", grupo.getDescripcion());
     homeActivity.startActivity(newActivity);
-//    homeActivity.startActivityForResult(newActivity, 1);
 //    homeActivity.finish();
-  }
-
-  public Grupo consultarGrupoPorNombre(HomeActivity homeActivity, String nombre) {
-    this.grupoRoomDAO = LocalStorage.getLocalStorage(homeActivity.getApplicationContext())
-      .grupoRoomDAO();
-    return this.grupoRoomDAO.obtenerGrupo(nombre);
   }
 
   public static boolean verificarUsuarioSigueGrupo(GrupoActivity grupoActivity,String correo, String nombreGrupo){
@@ -39,24 +37,24 @@ public class GrupoController {
   }
 
   public static void seguirGrupo(GrupoActivity grupoActivity,String correo, String nombreGrupo){
-    Boolean internet = IniciarSesionController.verificarConexionInternet(grupoActivity);
+    Boolean internet = ConexionInternet.verificarConexionInternet(grupoActivity);
     if(!internet){
-      grupoActivity.mostrarPopUp("No hay conexión a internet. Intentalo mas tarde");
+      PopUp.mostrarPopUp(grupoActivity, "No hay conexión a internet. Intentalo mas tarde", "");
     }else{
       SuscripcionController controller = new SuscripcionController();
       controller.crearSuscripcion(grupoActivity,correo,nombreGrupo);
-      grupoActivity.mostrarPopUp("Ahora sigues este grupo");
+      PopUp.mostrarPopUp(grupoActivity, "Ahora sigues este grupo", "");
     }
   }
 
   public static void abandonarGrupo(GrupoActivity grupoActivity,String correo, String nombreGrupo){
-    Boolean internet = IniciarSesionController.verificarConexionInternet(grupoActivity);
+    Boolean internet = ConexionInternet.verificarConexionInternet(grupoActivity);
     if(!internet){
-      grupoActivity.mostrarPopUp("No hay conexión a internet. Intentalo mas tarde");
+      PopUp.mostrarPopUp(grupoActivity,"No hay conexión a internet. Intentalo mas tarde", "");
     }else{
       SuscripcionController controller = new SuscripcionController();
       controller.eliminarSuscripcion(grupoActivity,correo,nombreGrupo);
-      grupoActivity.mostrarPopUp("Ahora no sigues este grupo");
+      PopUp.mostrarPopUp(grupoActivity, "Ahora no sigues este grupo", "");
     }
   }
 }
