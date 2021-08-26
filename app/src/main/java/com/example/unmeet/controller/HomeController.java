@@ -50,7 +50,6 @@ public class HomeController {
 
     public static void solicitarCrearVistaGrupo(HomeActivity homeActivity, String nombre, String correo) {
         GrupoController grupoController = new GrupoController();
-        System.out.println("Llegué a HomeController");
         grupoController.CrearVistaGrupo(homeActivity, nombre, correo);
 //        if (IniciarSesionController.verificarConexionInternet(homeActivity)) {
 //

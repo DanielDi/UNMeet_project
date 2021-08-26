@@ -56,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onRestart() {
         super.onRestart();
         startActivity(getIntent());
+        finish();
     }
 
 }
