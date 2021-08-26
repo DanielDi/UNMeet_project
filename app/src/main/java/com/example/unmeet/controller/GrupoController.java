@@ -21,7 +21,8 @@ public class GrupoController {
     newActivity.putExtra("nombre", grupo.getNombre());
     newActivity.putExtra("descripcion", grupo.getDescripcion());
     homeActivity.startActivity(newActivity);
-    homeActivity.finish();
+//    homeActivity.startActivityForResult(newActivity, 1);
+//    homeActivity.finish();
   }
 
   public Grupo consultarGrupoPorNombre(HomeActivity homeActivity, String nombre) {
