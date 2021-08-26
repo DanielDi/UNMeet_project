@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="grupo_activity_button_seguir_label">Seguir Grupo</string>
+    <string name="grupo_activity_button_abandonar_label">Abandonar Grupo</string>
+</resources>

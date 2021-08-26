@@ -9,6 +9,8 @@
         <entry key="..\:/Universidad/Diseño y construccion de productos de software/UNMeet_project/app/src/main/res/layout/activity_main.xml" value="0.2056159420289855" />
         <entry key="..\:/Universidad/Diseño y construccion de productos de software/UNMeet_project/app/src/main/res/layout/custom_dialog_alert.xml" value="0.2056159420289855" />
         <entry key="..\:/Universidad/Diseño y construccion de productos de software/UNMeet_project/app/src/main/res/layout/fragment__grupo.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/ZonaSB/Documents/GitHub/UNMeet_project/app/src/main/res/layout/activity_grupo.xml" value="0.25" />
+        <entry key="..\:/Users/ZonaSB/Documents/GitHub/UNMeet_project/app/src/main/res/layout/activity_iniciar_sesion.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nclsc/Developer/UNMeet_project/app/src/main/res/drawable/button.xml" value="0.2203125" />
         <entry key="..\:/Users/nclsc/Developer/UNMeet_project/app/src/main/res/drawable/ic_close.xml" value="0.2203125" />
         <entry key="..\:/Users/nclsc/Developer/UNMeet_project/app/src/main/res/drawable/ic_unmeet_logo.xml" value="0.2203125" />
@@ -18,7 +20,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

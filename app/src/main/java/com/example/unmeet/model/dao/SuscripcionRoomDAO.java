@@ -23,6 +23,10 @@ public interface SuscripcionRoomDAO {
             "WHERE s.nombregrupo IS NULL")
     List<Grupo> obtenerGruposUsuarioNoSigue(String correoUsuarioQ);
 
+    @Query("SELECT * FROM suscripciones " +
+            "WHERE correoUsuario = :correoUsuarioQ AND nombreGrupo = :nombreGrupoQ ORDER BY nombreGrupo")
+    List<Suscripcion> obtenerSuscripcionGruposUsuario(String correoUsuarioQ, String nombreGrupoQ);
+
     @Insert
     void insertAll(Suscripcion ...suscripciones);
     @Delete
