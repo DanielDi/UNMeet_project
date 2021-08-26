@@ -34,5 +34,6 @@ public interface SuscripcionRoomDAO {
 
 
     //Delete suscripcion
-
+    @Query("DELETE FROM suscripciones")
+    void deleteAll();
 }

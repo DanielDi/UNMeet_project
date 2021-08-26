@@ -40,6 +40,7 @@ public class HomeEntryActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
           try{
+
               crearUsuarios();
               crearGrupos();
               crearSuscripciones();
@@ -66,7 +67,7 @@ public class HomeEntryActivity extends AppCompatActivity {
   public void crearUsuarios() {
     this.userRoomDAO = LocalStorage.getLocalStorage(this.getApplicationContext())
             .userRoomDAO();
-    this.userRoomDAO.eliminarUsers();
+    this.userRoomDAO.deleteAll();
     User user1 = new User("El pepe", "pepe@gmail.com", "FOTO.jpg",
       "01/02/1956","123", "Pepelandia");
     User user2 = new User("Jack", "jack@unal.edu.co", "Paisaje.jpg",
@@ -82,6 +83,7 @@ public class HomeEntryActivity extends AppCompatActivity {
   public void crearGrupos() {
       this.grupoRoomDAO = LocalStorage
         .getLocalStorage(this.getApplicationContext()).grupoRoomDAO();
+      this.grupoRoomDAO.deleteAll();
       Grupo grupo1 = new Grupo("Danzas Joropo",
         "El joropo es una danza colombiana de muchos años de historia",
         "viejos_cachondos.jpg");
@@ -104,6 +106,7 @@ public class HomeEntryActivity extends AppCompatActivity {
   public void crearSuscripciones() {
     this.suscripcionRoomDAO = LocalStorage.getLocalStorage(this.getApplicationContext())
       .suscripcionRoomDAO();
+    this.suscripcionRoomDAO.deleteAll();
     Suscripcion susc1 = new Suscripcion("pepe@gmail.com", "Deportes Unal");
     Suscripcion susc2 = new Suscripcion("pepe@gmail.com", "Ajedrez");
     this.suscripcionRoomDAO.insertAll(susc1, susc2);

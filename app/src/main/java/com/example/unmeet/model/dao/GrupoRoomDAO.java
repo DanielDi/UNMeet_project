@@ -20,5 +20,8 @@ public interface GrupoRoomDAO {
 
     @Insert
     void insertAll(Grupo...grupos);
+
+    @Query("DELETE FROM grupos")
+    void deleteAll();
 }
 
