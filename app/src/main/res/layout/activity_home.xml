@@ -61,7 +61,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/title_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/home_label_page"
@@ -195,5 +195,7 @@
 
         </FrameLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,12 +60,13 @@ public class MainActivity extends AppCompatActivity {
     });
 
     homeEntryController = new HomeEntryController();
+    getSupportActionBar().hide();
   }
 
   public void solicitarInicioSesion() {
     Intent newActivity = new Intent(this, IniciarSesionActivity.class);
     startActivity(newActivity);
-    finish();
+//    finish();
   }
 
   public void crearUsuarios() {

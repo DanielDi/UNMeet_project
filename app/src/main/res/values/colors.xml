@@ -10,4 +10,5 @@
     <color name="red_wine">#56070C</color>
     <color name="mouse_gray">#373737</color>
     <color name="light_gray">#E7E7E7</color>
+    <color name="ultra_light_gray">#FBF9F9</color>
 </resources>

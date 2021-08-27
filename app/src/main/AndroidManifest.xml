@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UNMeet">
-        <activity android:name=".GrupoActivity"></activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".IniciarSesionActivity" />
+        <activity android:name=".GrupoActivity"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".HomeActivity"
+            android:parentActivityName=".IniciarSesionActivity"/>
+        <activity android:name=".IniciarSesionActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

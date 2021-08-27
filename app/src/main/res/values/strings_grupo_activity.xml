@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="follow_group_button_activity_grupo">Seguir grupo</string>
+    <string name="group_title_placeholder">This is the group title placeholder</string>
+    <string name="group_title_image_placeholder">This is the group image title placeholder</string>
+    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</string>
+    <string name="description_label">Descripción: </string>
+    <string name="date_label">Fecha: </string>
+    <string name="assistance_label">Asistencia: </string>
+    <string name="capacity_label">Capacidad: </string>
+    <string name="place_label">Lugar: </string>
+    <string name="dummy_text">This is a dummy text just for test purposes</string>
+    <string name="title_grupo">Grupo</string>
+</resources>

@@ -46,6 +46,8 @@ public class HomeActivity extends AppCompatActivity {
               .commit();
         }
 
+        getSupportActionBar().hide();
+
     }
 
     public void getNombreGrupo(String grupo) {
