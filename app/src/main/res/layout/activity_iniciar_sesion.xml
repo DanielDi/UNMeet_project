@@ -100,7 +100,7 @@
                 android:id="@+id/input_fields_constraint"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
-                app:layout_constraintBottom_toTopOf="@+id/follow_group_button_activity_grupo"
+                app:layout_constraintBottom_toTopOf="@+id/grupo_activity_button_seguir_abandonar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -175,7 +175,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/follow_group_button_activity_grupo"
+                android:id="@+id/grupo_activity_button_seguir_abandonar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
