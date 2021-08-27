@@ -13,8 +13,10 @@ public interface UserRoomDAO {
 
   @Query("SELECT * FROM users WHERE correo = :correoQuery")
   User obtenerUser(String correoQuery);
+
   @Insert
   void insertAll(User ...users);
-  @Query("DELETE FROM users WHERE correo= 'un@gmail.com' ")
-  void eliminarUsers();
+
+  @Query("DELETE FROM users")
+  void deleteAll();
 }

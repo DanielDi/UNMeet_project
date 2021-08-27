@@ -54,4 +54,11 @@ public class HomeActivity extends AppCompatActivity {
         HomeController.solicitarCrearVistaGrupo(this, grupo, this.correo);
     }
 
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        startActivity(getIntent());
+        finish();
+    }
+
 }

@@ -11,6 +11,8 @@ import com.example.unmeet.model.LocalStorage;
 import com.example.unmeet.model.dao.GrupoRoomDAO;
 import com.example.unmeet.model.pojo.Grupo;
 import com.example.unmeet.model.pojo.Suscripcion;
+import com.example.unmeet.shared.ConexionInternet;
+import com.example.unmeet.shared.PopUp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +52,12 @@ public class HomeController {
 
     public static void solicitarCrearVistaGrupo(HomeActivity homeActivity, String nombre, String correo) {
         GrupoController grupoController = new GrupoController();
-        System.out.println("Llegué a HomeController");
-        grupoController.CrearVistaGrupo(homeActivity, nombre, correo);
-//        if (IniciarSesionController.verificarConexionInternet(homeActivity)) {
-//
-//        }
+
+        if (ConexionInternet.verificarConexionInternet(homeActivity)) {
+            grupoController.CrearVistaGrupo(homeActivity, nombre, correo);
+        } else {
+            PopUp.mostrarPopUp(homeActivity, "No hay conexión a internet. Inténtalo más tarde", "");
+        }
 
     }
 }

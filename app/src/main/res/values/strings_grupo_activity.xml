@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="grupo_activity_button_seguir_label">Seguir Grupo</string>
+    <string name="grupo_activity_button_abandonar_label">Abandonar Grupo</string>
     <string name="follow_group_button_activity_grupo">Seguir grupo</string>
     <string name="group_title_placeholder">This is the group title placeholder</string>
     <string name="group_title_image_placeholder">This is the group image title placeholder</string>
