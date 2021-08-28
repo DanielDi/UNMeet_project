@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.unmeet.controller.HomeController;
 import com.example.unmeet.controller.SuscripcionController;
@@ -17,6 +19,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private String correo;
+    private Button backButton;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -48,6 +51,16 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        backButton = findViewById(R.id.back_button);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.back_button) {
+                    finish();
+                }
+            }
+        });
     }
 
     public void getNombreGrupo(String grupo) {
