@@ -32,7 +32,7 @@ public class IniciarSesionController {
         } else {
             Boolean checkCorreo = verificarFormatoCorreo(correo);
             if(!checkCorreo){
-                PopUp.mostrarPopUp(context,"Verifica el correo", "");
+                PopUp.mostrarPopUp(context,"Por favor ingresar el correo de la siguiente manera nombre@dominio.com", "");
             } else {
                 verificarInicioSesion(context, correo, contraseña);
             }
@@ -47,7 +47,7 @@ public class IniciarSesionController {
         User user = this.userRoomDAO.obtenerUser(correo);
 
         if(user == null || user.getContrasena().compareTo(contraseña) < 0){
-            iniciarSesionActivity.mostrarPopUp("Correo o contraseña inválidos");
+            PopUp.mostrarPopUp(iniciarSesionActivity,"Correo  o contraseña inválidos","");
         } else {
             HomeController.crearVistaHome(iniciarSesionActivity, correo);
         }

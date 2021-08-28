@@ -27,8 +27,7 @@ public class SuscripcionController {
           .obtenerGruposUsuarioNoSigue(correo);
     }
 
-    public static List<Suscripcion> obtenerSuscripcionGrupoUsuario(GrupoActivity grupoActivity,
-                                                             String correo, String nombreGrupo){
+    public static List<Suscripcion> obtenerSuscripcionGrupoUsuario(GrupoActivity grupoActivity, String correo, String nombreGrupo){
         return LocalStorage.getLocalStorage(grupoActivity.getApplicationContext())
                 .suscripcionRoomDAO()
                 .obtenerSuscripcionGruposUsuario(correo,nombreGrupo);

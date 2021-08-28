@@ -14,8 +14,4 @@ public class HomeEntryController {
     context.finish();
   }
 
-  public static void verficarConexionInternet() {
-
-  }
-
 }

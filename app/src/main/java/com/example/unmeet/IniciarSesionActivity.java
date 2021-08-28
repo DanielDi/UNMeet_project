@@ -53,19 +53,5 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
   }
 
-  public void mostrarPopUp(String mensaje){
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setMessage(mensaje)
-            .setPositiveButton("X", new DialogInterface.OnClickListener() {
-              @Override
-              public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-              }
-            });
-
-    AlertDialog dialog = builder.create();
-    dialog.show();
-  }
-
 
 }
